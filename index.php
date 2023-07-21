@@ -8,9 +8,14 @@
 </head>
 
 <body>
+    <pre>
     <?php
     require_once "Class/Caneta.php";
     require_once "Class/Gato.php";
+    require_once "Class/ContaBanco.php";
+    require_once "Class/ControleRemoto.php";
+    
+    echo"<h2>Classe Simples - Objeto Caneta</h2>";
     $c1 = new Caneta;
     $c1->setModelo("BIC");
     $c1->setPonta(0.5);
@@ -18,9 +23,41 @@
     print("Modelo: {$c1->getModelo()}, ponta: {$c1->getPonta()}, Carga: {$c1->getCarga()}");
 
     echo "<br><br>";
+    
     // Metodo Construtor
+    echo"<h2>Metodo Construtor - Objeto Gato</h2>";
     $g1 = new Gato("Hylander", 2, "Cinza");
     print("Nome do gato: {$g1->getNome()}, peso do gato: {$g1->getPeso()}, cor do pelo do gato: {$g1->getCorPelo()}");
+    
+    echo "<br><br>";
+    
+    // Exemplo Pratico usando uma conta de banco
+    echo"<h2>Exemplo Pratico - Conta de Banco</h2>";
+    $conta1 = new ContaBanco(1, "cp", "Pedro");
+    print("Numero da conta: {$conta1->getNumConta()}, tipo de conta: {$conta1->getTipo()}, dono: {$conta1->getDono()}, saldo: {$conta1->getSaldo()}, status: {$conta1->getStatusAberta()}");
+    echo"<br>"; 
+    $conta1->abrirConta();
+    print("Numero da conta: {$conta1->getNumConta()}, tipo de conta: {$conta1->getTipo()}, dono: {$conta1->getDono()}, saldo: {$conta1->getSaldo()}, status: {$conta1->getStatusAberta()}");
+    echo"<br>";
+    $conta1->fecharConta();
+    echo"<br>";
+    $conta1->sacar(150);
+    $conta1->fecharConta(); 
+    print($conta1->getStatusAberta());
+
+    echo"<br><br>";
+
+    // Encapsulamento
+    echo"<h2>Encapsulamento - Controle Remoto</h2>";
+    $controleRemoto = new ControleRemoto;
+    $controleRemoto->ligarDesligar();
+    $controleRemoto->playPause();
+    $controleRemoto->abrirFecharMenu();
+    $controleRemoto->maisVolume();
+    $controleRemoto->menosVolume();
+    $controleRemoto->abrirFecharMenu();
+    $controleRemoto->ligarDesligar();
     ?>
+    </pre>
 </body>
 </html>

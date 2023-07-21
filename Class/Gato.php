@@ -1,3 +1,5 @@
+<!-- UTILIZAÇÃO DE CONSTRUTOR -->
+
 <?php
 class Gato{
     public $nome;
