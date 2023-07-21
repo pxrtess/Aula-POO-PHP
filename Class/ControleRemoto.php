@@ -14,38 +14,6 @@ class ControleRemoto implements IControlador
         $this->tocando = false;
         $this->menu = false;
     }
-    public function getLigado()
-    {
-        return $this->ligado;
-    }
-    public function setLigado($value)
-    {
-        $this->ligado = $value;
-    }
-    public function getVolume()
-    {
-        return $this->volume;
-    }
-    public function setVolume($value)
-    {
-        $this->volume = $value;
-    }
-    public function getTocando()
-    {
-        return $this->tocando;
-    }
-    public function setTocando($value)
-    {
-        $this->tocando = $value;
-    }
-    public function getMenu()
-    {
-        return $this->menu;
-    }
-    public function setMenu($value)
-    {
-        $this->menu = $value;
-    }
     public function ligarDesligar()
     {
         if ($this->ligado) {
@@ -59,7 +27,7 @@ class ControleRemoto implements IControlador
     public function abrirFecharMenu()
     {
         if (!$this->getMenu()) {
-            echo "<hr>Está ligado?: " . ($this->getLigado() ? "SIM" : "NÃO");
+            echo "<hr><strong>Menu</strong><br>Está ligado?: " . ($this->getLigado() ? "SIM" : "NÃO");
             echo "<br>Está tocando?: " . ($this->getTocando() ? "SIM" : "NÃO");
             echo "<br>Volume: " . $this->getVolume();
             for ($i = 0; $i <= $this->getVolume(); $i += 10) {
@@ -117,6 +85,38 @@ class ControleRemoto implements IControlador
                 echo "Tocando.";
             }
         }
+    }
+    public function getLigado()
+    {
+        return $this->ligado;
+    }
+    public function setLigado($value)
+    {
+        $this->ligado = $value;
+    }
+    public function getVolume()
+    {
+        return $this->volume;
+    }
+    public function setVolume($value)
+    {
+        $this->volume = $value;
+    }
+    public function getTocando()
+    {
+        return $this->tocando;
+    }
+    public function setTocando($value)
+    {
+        $this->tocando = $value;
+    }
+    public function getMenu()
+    {
+        return $this->menu;
+    }
+    public function setMenu($value)
+    {
+        $this->menu = $value;
     }
 }
 ?>

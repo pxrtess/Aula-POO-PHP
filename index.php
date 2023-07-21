@@ -14,6 +14,7 @@
     require_once "Class/Gato.php";
     require_once "Class/ContaBanco.php";
     require_once "Class/ControleRemoto.php";
+    require_once "Class/Lutador.php";
     
     echo"<h2>Classe Simples - Objeto Caneta</h2>";
     $c1 = new Caneta;
@@ -57,6 +58,18 @@
     $controleRemoto->menosVolume();
     $controleRemoto->abrirFecharMenu();
     $controleRemoto->ligarDesligar();
+    
+    // Relacionamento entre classes
+    echo"<h2>Relacionamento entre Classes - Lutador e Lutas</h2>";
+    $lutador = [];
+    $lutador[0] = new Lutador("Pretty Boy", "França", 31, 1.75, 68.9);
+    $lutador[1] = new Lutador("Putscript", "Brasil", 29, 1.68, 57.8);
+    $lutador[2] = new Lutador("Snapshadow", "Estados Unidos", 34, 1.89, 103.4);
+    $lutador[3]= new Lutador("Anderson", "Italia", 27, 1.74, 83.5);
+    $lutador[0]->apresentar();
+    $lutador[0]->ganharLuta();
+    echo"<br>";
+    $lutador[0]->apresentar();
     ?>
     </pre>
 </body>
