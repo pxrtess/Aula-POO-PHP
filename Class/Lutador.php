@@ -26,7 +26,7 @@ class Lutador implements ILutador
     }
     public function apresentar()
     {
-        echo"Lutador: {$this->getNome()}, Origem: {$this->getNacionalidade()}, {$this->getIdade()} anos, {$this->getAltura()}m de altura, Pesando: {$this->getPeso()}, com {$this->getQuantidadeLutas()} luta(s), sendo {$this->getVitorias()} vitoria(s), {$this->getDerrotas()} derrota(s), {$this->getEmpates()} empate(s).";
+        echo"Lutador: {$this->getNome()}, Origem: {$this->getNacionalidade()}, {$this->getIdade()} anos, {$this->getAltura()}m de altura, categoria: {$this->getCategoria()} Pesando: {$this->getPeso()}, com {$this->getQuantidadeLutas()} luta(s), sendo {$this->getVitorias()} vitoria(s), {$this->getDerrotas()} derrota(s), {$this->getEmpates()} empate(s).";
     }
     public function status()
     {
@@ -82,11 +82,11 @@ class Lutador implements ILutador
     public function getPeso()
     {
         return $this->peso;
-        $this->setCategoria();
     }
     public function setPeso($value)
     {
         $this->peso = $value;
+        $this->setCategoria();
     }
     public function getVitorias()
     {
@@ -112,25 +112,20 @@ class Lutador implements ILutador
     {
         $this->empates = $value;
     }
-    public function getCatergoria()
+    public function getCategoria()
     {
         return $this->categoria;
     }
     public function setCategoria()
     {
-        switch ($this->peso) {
-            case ($this->peso <= 70.3 && $this->peso > 52.2):
-                $this->categoria = "Leve.";
-                break;
-            case ($this->peso<=83.9):
-                $this->categoria = "Médio.";
-                break;
-            case ($this->peso<=120.2):
-                $this->categoria = "Pesado.";
-                break;
-            default:
-                $this->categoria="Invalido para competir.";
-                break;
+        if($this->peso <= 70.3 && $this->peso > 52.2){
+            $this->categoria = "Leve.";
+        }else if($this->peso<=83.9 && $this->peso > 70.3){
+            $this->categoria = "Médio.";
+        } else if($this->peso<=120.2 && $this->peso > 83.9){
+            $this->categoria = "Pesado.";
+        } else{
+            $this->categoria="Invalido para competir.";
         }
     }
     public function getQuantidadeLutas(){

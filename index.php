@@ -15,6 +15,7 @@
     require_once "Class/ContaBanco.php";
     require_once "Class/ControleRemoto.php";
     require_once "Class/Lutador.php";
+    require_once "Class/Luta.php";
     
     echo"<h2>Classe Simples - Objeto Caneta</h2>";
     $c1 = new Caneta;
@@ -32,7 +33,7 @@
     
     echo "<br><br>";
     
-    // Exemplo Pratico usando uma conta de banco
+    // Exemplo Pratico Usando uma Conta de Banco
     echo"<h2>Exemplo Pratico - Conta de Banco</h2>";
     $conta1 = new ContaBanco(1, "cp", "Pedro");
     print("Numero da conta: {$conta1->getNumConta()}, tipo de conta: {$conta1->getTipo()}, dono: {$conta1->getDono()}, saldo: {$conta1->getSaldo()}, status: {$conta1->getStatusAberta()}");
@@ -59,17 +60,16 @@
     $controleRemoto->abrirFecharMenu();
     $controleRemoto->ligarDesligar();
     
-    // Relacionamento entre classes
+    // Relacionamento Entre Classes
     echo"<h2>Relacionamento entre Classes - Lutador e Lutas</h2>";
     $lutador = [];
     $lutador[0] = new Lutador("Pretty Boy", "França", 31, 1.75, 68.9);
     $lutador[1] = new Lutador("Putscript", "Brasil", 29, 1.68, 57.8);
     $lutador[2] = new Lutador("Snapshadow", "Estados Unidos", 34, 1.89, 103.4);
     $lutador[3]= new Lutador("Anderson", "Italia", 27, 1.74, 83.5);
-    $lutador[0]->apresentar();
-    $lutador[0]->ganharLuta();
-    echo"<br>";
-    $lutador[0]->apresentar();
+    $UEC01 = new Luta;
+    $UEC01->marcarLuta($lutador[0], $lutador[1]);
+    $UEC01->lutar();
     ?>
     </pre>
 </body>
